@@ -1,0 +1,88 @@
+/** graph components **/
+.header {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: left;
+}
+
+.sorry {
+    font-size: 12px;
+}
+
+.key {
+    margin-right: -300px;
+    border: 4px solid orange;
+}
+
+.info {
+    width: 15px;
+    float: right;
+    padding-left: auto;
+    margin-right: 0px;
+    margin-top: 5px;
+}
+
+.infoDiv {
+    margin-right: 0;
+    margin-left: auto;
+    margin-top: 0px;
+    margin-bottom: auto;
+    height: 20px;
+}
+
+.info:hover + .hiddenInfo {
+    display: block;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+}
+
+.hiddenInfo {
+    display: none;
+    font-size: 12px;
+    width: 12em;
+    margin-top: 25px;
+    margin-right: 0;
+    text-align: start;
+    border: 1px solid grey;
+    padding: 5px;
+    background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+    background: rgba(52, 51, 51, 0.5); 
+    font-family: Helvetica, Arial;
+    font-style: normal;
+    font-weight: 100;
+    border: 1px solid grey;
+    border-radius: 0.5em;
+    font-size: xx-small;
+}
+
+.infoHeading {
+    margin-bottom: 2px;
+}
+
+@media only screen and (max-width: 400px) {
+    .header {
+        font-size: 16px;
+    }
+
+    .info {
+        width: 10px;
+    }
+
+    .hiddenInfo {
+        font-size: 8px;
+        width: 30vw;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .header {
+        font-size: 14px;
+    }
+
+    .hiddenInfo {
+        font-size: 8px;
+    }
+}

@@ -1,0 +1,36 @@
+.songInfo {
+    background-color: #000;
+    color: #fff;
+    background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+    background: rgba(52, 51, 51, 0.5);   
+    border: 1px solid grey;
+    border-radius: 0.5em;
+    width: 180px;
+}
+
+.smallSongInfo {
+    background-color: #000;
+    color: #fff;
+    background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+    background: rgba(52, 51, 51, 0.5);   
+    border: 1px solid grey;
+    border-radius: 0.5em;
+    width: 100px;
+}
+
+.name { 
+    margin: 5px;
+    text-align: left;
+    font-size: small;
+    margin-bottom: 0;
+    margin-right: 10px;
+}
+
+.artist { 
+    margin: 5px;
+    margin-top: 0;
+    text-align: left;
+    font-size: xx-small; 
+    margin-right: 10px;
+    margin-bottom: 0;
+}
