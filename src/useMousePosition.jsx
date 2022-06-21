@@ -9,7 +9,6 @@ export function useMousePosition() {
       const setFromEvent = (e) => {
         e.stopPropagation();
         e.preventDefault();
-        // console.log(e.touches[0].clientX)
         setPosition({ x: e.touches[0].clientX, y: e.touches[0].clientY });
       }
       window.addEventListener("touchstart", setFromEvent);

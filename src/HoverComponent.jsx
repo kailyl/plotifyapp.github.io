@@ -4,7 +4,8 @@ import "./hoverComponent.css"
 import { GenreComponent } from "./GenreComponent";
 
 export function HoverComponent({x, y, imageSize, axisLength, popularity, danceability, songInfo, smallFormat}) {
-
+    console.log(x) 
+    console.log(y)
     // set bounds for the coordinates
     const bounds = findBounds(popularity, danceability, axisLength, imageSize);
 
