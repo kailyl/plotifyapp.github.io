@@ -49,7 +49,7 @@ class App extends Component {
       success: data => {
         // Checks if the data is not empty
         if(!data) {
-          console.log("NOOOOO we couldn't get your top songs :((")
+          window.alert("NOOOOO we couldn't get your top songs :((");
           return;
         }
         this.setState({
@@ -84,7 +84,7 @@ class App extends Component {
           success: data => {
             // Checks if the data is not empty
             if(!data) {
-              console.log("NOOOOO we couldn't get your top songs :((")
+              window.alert("NOOOOO we couldn't get your top songs :((");
               return;
             }
             const dictionary = this.state.songDictionary;
@@ -122,7 +122,7 @@ class App extends Component {
         success: data => {
           // Checks if the data is not empty
           if(!data) {
-            console.log("NOOOOO we couldn't get your top songs :((")
+            window.alert("NOOOOO we couldn't get your top songs :((")
             return;
           }
           const dictionary = this.state.danceability;
@@ -147,7 +147,7 @@ class App extends Component {
         success: data => {
           // Checks if the data is not empty
           if(!data) {
-            console.log("NOOOOO we couldn't get your top songs :((")
+            window.alert("NOOOOO we couldn't get your top songs :((")
             return;
           }
           const dictionary = this.state.popularity;
