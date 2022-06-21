@@ -78,12 +78,12 @@ export function Canvas ({ draw, height, width, imageSize, popularity, danceabili
     return (
         <div> 
             <canvas className="canvas" ref={canvas} height={height} width={width}/>
-            <MouseTooltip
+            {/* <MouseTooltip
             className="test"
             visible={true}
             offsetX={xOffset}
             offsetY={0}
-            >
+            > */}
             <HoverComponent x={position.x - xRect.current} 
                             y={position.y - yRect.current} 
                             imageSize={imageSize} 
@@ -93,7 +93,7 @@ export function Canvas ({ draw, height, width, imageSize, popularity, danceabili
                             songInfo={songInfo}
                             smallFormat={smallFormat}
                             />
-            </MouseTooltip>
+            {/* </MouseTooltip> */}
         </div>
     )
 };
