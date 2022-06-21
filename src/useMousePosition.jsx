@@ -8,9 +8,13 @@ export function useMousePosition() {
     useEffect(() => {
       const setFromEvent = (e) => setPosition({ x: e.touches[0].clientX, y: e.touches[0].clientY });
       window.addEventListener("touchmove", setFromEvent);
+      window.addEventListener("touchstart", setFromEvent);
+      window.addEventListener("touchend", setFromEvent);
   
       return () => {
+        window.removeEventListener("touchstart", setFromEvent);
         window.removeEventListener("touchmove", setFromEvent);
+        window.removeEventListener("touchend", setFromEvent);
       };
     }, []);
   } else {
