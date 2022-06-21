@@ -1,10 +1,10 @@
 {
-  "name": "react-instafeed",
-  "description": "Realtime Spotify Player built with React.",
-  "version": "0.1.0",
-  "author": "Joe Karlsson<joekarlsson1@gmail.com>",
-  "license": "MIT",
+  "name": "plotify",
+  "description": "plot your top songs on Spotify based on popularity and danceability.",
+  "version": "1.0.0",
+  "author": "Kaily Liu, Joyce He",
   "private": true,
+  "homepage": "https://plotifyapp.github.io",
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "d3": "^7.4.4",
@@ -21,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,5 +33,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
 }
