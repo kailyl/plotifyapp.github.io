@@ -4,7 +4,7 @@ import {isMobile} from 'react-device-detect';
 export function useMousePosition() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  // if(isMobile) {
+  if(isMobile) {
     useEffect(() => {
       const setFromEvent = (e) => {
         console.log("HELLO")
@@ -17,16 +17,16 @@ export function useMousePosition() {
         window.removeEventListener("touchstart", setFromEvent);
       };
     }, []);
-  // } else {
-  //   useEffect(() => {
-  //     const setFromEvent = (e) => setPosition({ x: e.clientX, y: e.clientY });
-  //     window.addEventListener("mousemove", setFromEvent);
+  } else {
+    useEffect(() => {
+      const setFromEvent = (e) => setPosition({ x: e.clientX, y: e.clientY });
+      window.addEventListener("mousemove", setFromEvent);
   
-  //     return () => {
-  //       window.removeEventListener("mousemove", setFromEvent);
-  //     };
-  //   }, []);
-  // }
+      return () => {
+        window.removeEventListener("mousemove", setFromEvent);
+      };
+    }, []);
+  }
   
   return position;
 };
