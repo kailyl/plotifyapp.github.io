@@ -7,6 +7,7 @@ import { HoverComponent } from "./HoverComponent";
 export function Canvas ({ draw, height, width, imageSize, popularity, danceability, songInfo, smallFormat }) {
     
     const position = useMousePosition()
+    console.log(position)
     const canvas = React.useRef();
 
     const xRect = useRef(0);
