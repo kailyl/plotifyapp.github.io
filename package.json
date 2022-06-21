@@ -11,6 +11,7 @@
     "d3blackbox": "^1.2.0",
     "jquery": "^3.4.1",
     "react": "^16.8.4",
+    "react-device-detect": "^2.2.2",
     "react-dom": "^16.8.4",
     "react-scripts": "^2.1.8",
     "react-sticky-mouse-tooltip": "^0.0.1",
