@@ -57,6 +57,7 @@ class App extends Component {
           no_data: false /* We need to "reset" the boolean, in case the
                             user does not give F5 and has opened his Spotify. */
         });
+        console.log(data)
         this.getAudioFeatures(token)
         this.getPopularity(token)
         this.getSongInfo(token)
