@@ -11,20 +11,10 @@ export function ComputerTop({songInfo, hoveredSong}) {
         }
     }
 
-    if (songs.length <= 0) {
-        return (
-            <div className="margins"> 
-                <div className="top"> 
-                    <h1 className="load">Loading... </h1>
-                </div> 
-            </div> 
-        )
-    }
-
     return (
         <div className="margins"> 
             <div className="top"> 
-                <h2 className="header"> Your Top 10</h2>
+                <h2 className="header"> {songs.length <= 0 ? "Loading..." : "Your Top 10"}</h2>
                 <div className="songs"> 
                     {songs.map(song => <div> {song} </div>)}
                 </div> 

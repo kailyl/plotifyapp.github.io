@@ -80,8 +80,8 @@ export function DisplayGraph(props) {
       return (
         <div>
           <div className="heading">
-            {smallFormat ? <h2 className="header" style={{fontSize: 20, marginBottom: 0}}> Where Your Taste Falls </h2> : 
-                        <h2 className="header" style={{fontSize: 40, marginBottom: 0}}> Where Your Taste Falls </h2> 
+            {smallFormat ? <h2 className="header" style={{fontSize: 20, marginBottom: 0}}> Where Your Music Falls </h2> : 
+                        <h2 className="header" style={{fontSize: 40, marginBottom: 0}}> Where Your Music Falls </h2> 
             }
             <div className="infoDiv"> 
               <img className="info" src={info} alt="info page"/> 
