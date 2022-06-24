@@ -3,6 +3,8 @@ import "./Canvas.css"
 import { useMousePosition } from "./useMousePosition";
 import MouseTooltip from 'react-sticky-mouse-tooltip';
 import { HoverComponent } from "./HoverComponent";
+import {isMobile} from 'react-device-detect';
+import { ComputerTop } from "./ComputerTop";
 
 export function Canvas ({ draw, height, width, imageSize, popularity, danceability, songInfo, smallFormat }) {
     
@@ -75,27 +77,50 @@ export function Canvas ({ draw, height, width, imageSize, popularity, danceabili
         xOffset = 0;
     }
 
-    return (
-        <div> 
-            <canvas className="canvas" ref={canvas} height={height} width={width}/>
-            {/* <MouseTooltip
-            className="test"
-            visible={true}
-            offsetX={xOffset}
-            offsetY={0}
-            > */}
-            <HoverComponent x={position.x - xRect.current} 
-                            y={position.y - yRect.current} 
-                            imageSize={imageSize} 
-                            axisLength={width}
-                            popularity={popularity}
-                            danceability={danceability}
-                            songInfo={songInfo}
-                            smallFormat={smallFormat}
-                            />
-            {/* </MouseTooltip> */}
-        </div>
-    )
+    const[hovered, setHovered] = useState("")
+
+    if (isMobile) {
+        return (
+            <div> 
+                <canvas className="canvas" ref={canvas} height={height} width={width}/>
+                <HoverComponent x={position.x - xRect.current} 
+                                y={position.y - yRect.current} 
+                                imageSize={imageSize} 
+                                axisLength={width}
+                                popularity={popularity}
+                                danceability={danceability}
+                                songInfo={songInfo}
+                                smallFormat={smallFormat}
+                                isMobile={true}
+                                />
+            </div>
+        )
+    } else {
+        return (
+            <div style={{display: "flex"}}> 
+                <canvas className="canvas" ref={canvas} height={height} width={width}/>
+                <MouseTooltip
+                className="test"
+                visible={true}
+                offsetX={xOffset}
+                offsetY={0}
+                >
+                <HoverComponent x={position.x - xRect.current} 
+                                y={position.y - yRect.current} 
+                                imageSize={imageSize} 
+                                axisLength={width}
+                                popularity={popularity}
+                                danceability={danceability}
+                                songInfo={songInfo}
+                                smallFormat={smallFormat}
+                                isMobile={false}
+                                setHovered={setHovered}
+                                />
+                </MouseTooltip>
+                <ComputerTop songInfo={songInfo} hoveredSong={hovered}/>
+            </div>
+        )
+    }
 };
 
 export const MemorizedCanvas = React.memo(Canvas, () => {

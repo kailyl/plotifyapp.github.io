@@ -19,16 +19,16 @@ export function KeyCanvas ({ height, width, smallFormat }) {
         let lineEndX = 113; 
         let radius = 5; 
         let fontsize = "14px"
-        let chillStart = 42; 
+        let hypeStart = 37; 
         let rightSideStart = 125; 
 
         if (smallFormat) {
             fontsize = "12px"
             radius = 4;
             lineStartX = 70;
-            lineEndX = 95; 
-            chillStart = 37;
-            rightSideStart = 98;
+            lineEndX = 90; 
+            hypeStart = 32;
+            rightSideStart = 93;
         }
         context.beginPath();
         var grd = context.createLinearGradient(lineStartX, 35, lineEndX - 10, 35);
@@ -75,7 +75,7 @@ export function KeyCanvas ({ height, width, smallFormat }) {
 
         context.fillStyle = "grey";
         context.font = fontsize + " Helvetica";
-        context.fillText("chill", chillStart, 38);
+        context.fillText("hype", hypeStart, 38);
 
         context.fillStyle = "grey";
         context.font = fontsize + " Helvetica";
@@ -83,7 +83,7 @@ export function KeyCanvas ({ height, width, smallFormat }) {
 
         context.fillStyle = "grey";
         context.font = fontsize + " Helvetica";
-        context.fillText("hype", rightSideStart, 38);
+        context.fillText("chill", rightSideStart, 38);
     });
 
     return (

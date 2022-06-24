@@ -4,7 +4,8 @@ import { getScreenSize } from "./getScreenSize";
 import { MemorizedCanvas } from "./Canvas";
 import { transformCoordinates } from "./helper";
 import { KeyCanvas } from "./KeyCanvas";
-import info from "./info-2-64.png"
+import info from "./info-2-64.png";
+import {isMobile} from 'react-device-detect';
 
 export function DisplayGraph(props) {
     const songData = props.items;
@@ -23,7 +24,7 @@ export function DisplayGraph(props) {
     if (width > 900) {
       imgSize = 0.038 * width; 
       axisLength = 0.4 * width;
-    } else if (width > 600) {
+    } else if (width > 750) {
       imgSize = 0.05 * width; 
       axisLength = 0.6 * width;
     }
@@ -70,7 +71,7 @@ export function DisplayGraph(props) {
         return (
             <p> Loading...</p>
         )
-    } else if (width <250) {
+    } else if (width <300) {
       return (
         <p className="sorry"> 
           We're sorry, your display is too small to properly view the data. Please switch to a device with a larger screen size.
@@ -80,7 +81,9 @@ export function DisplayGraph(props) {
       return (
         <div>
           <div className="heading">
-            <h2 className="header"> Your Music</h2> 
+            {smallFormat ? <h2 className="header" style={{fontSize: 30, marginBottom: 0}}> Where Your Taste Falls </h2> : 
+                        <h2 className="header" style={{fontSize: 40, marginBottom: 0}}> Where Your Taste Falls </h2> 
+            }
             <div className="infoDiv"> 
               <img className="info" src={info} alt="info page"/> 
               <div className="hiddenInfo"> 
@@ -91,15 +94,17 @@ export function DisplayGraph(props) {
               </div>
             </div> 
           </div> 
-          <KeyCanvas className="key" height={50} width={axisLength} smallFormat={superSmallFormat}/> 
-          <MemorizedCanvas draw={draw} 
-                          height={axisLength} 
-                          width={axisLength} 
-                          imageSize={imgSize} 
-                          popularity={popularityX} 
-                          danceability={danceabilityY}
-                          songInfo={songDictionary}
-                          smallFormat={smallFormat}/>
+          <div className="key"> 
+            <KeyCanvas height={50} width={axisLength} smallFormat={superSmallFormat}/> 
+          </div> 
+          <MemorizedCanvas className="bigCanvas" draw={draw} 
+                            height={axisLength} 
+                            width={axisLength} 
+                            imageSize={imgSize} 
+                            popularity={popularityX} 
+                            danceability={danceabilityY}
+                            songInfo={songDictionary}
+                            smallFormat={smallFormat}/>
         </div>   
       )   
     } 

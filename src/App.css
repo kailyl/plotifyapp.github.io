@@ -4,7 +4,7 @@
 
 .App-header {
   background-color: #000;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,6 +71,7 @@ body {
 
 .main {
   display: inline;
+  margin-top: 30vh;
 }
 
 .hi {
@@ -89,10 +90,10 @@ body {
     width: 20%;
     height: 20%;
   }
+
 }
 
 @media only screen and (max-width: 250px) {
-
   .btn {
     font-size: 10px;
   }
@@ -104,6 +105,14 @@ body {
   }
 
   .hi {
-    width: 150px
+    width: 150px; 
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-height: 500px) {
+  .main {
+    margin-top: 12vh;
   }
 }

@@ -57,7 +57,6 @@ class App extends Component {
           no_data: false /* We need to "reset" the boolean, in case the
                             user does not give F5 and has opened his Spotify. */
         });
-        console.log(data)
         this.getAudioFeatures(token)
         this.getPopularity(token)
         this.getSongInfo(token)
@@ -127,7 +126,7 @@ class App extends Component {
             return;
           }
           const dictionary = this.state.danceability;
-          dictionary[id] = [data.audio_features[0].danceability * 100];  
+          dictionary[id] = [100 - data.audio_features[0].danceability * 100];  
           this.setState({
             danceability: dictionary, 
           })
