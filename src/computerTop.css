@@ -28,6 +28,12 @@
     margin-top: 10%;
 }
 
+.load {
+    font-size: 20px;
+    padding-top: 20px;
+    margin-left: -8px;
+}
+
 @media only screen and (max-width: 900px) {
     .margins {
         display: none;

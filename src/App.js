@@ -13,7 +13,7 @@ class App extends Component {
       token: null,
       items: null,
       no_data: false,
-      danceability: {}, 
+      valence: {}, 
       popularity: {},
       songDictionary: {}, 
     };
@@ -67,7 +67,6 @@ class App extends Component {
   getSongInfo(token) {
     for (var i = 0; i < this.state.items.length; i++) {
       const id = this.state.items[i].id
-      const dictionary = this.state.songDictionary; 
       this.setState({
         genreList: []
       })
@@ -125,10 +124,10 @@ class App extends Component {
             window.alert("NOOOOO we couldn't get your top songs :((")
             return;
           }
-          const dictionary = this.state.danceability;
-          dictionary[id] = [100 - data.audio_features[0].danceability * 100];  
+          const dictionary = this.state.valence;
+          dictionary[id] = [100 - data.audio_features[0].valence * 100];  
           this.setState({
-            danceability: dictionary, 
+            valence: dictionary, 
           })
         }
       });
@@ -185,7 +184,7 @@ class App extends Component {
             <div> 
               <DisplayGraph items={this.state.items} 
                           popularity={this.state.popularity} 
-                          danceability={this.state.danceability} 
+                          valence={this.state.valence} 
                           songDictionary={this.state.songDictionary}/> 
             </div>
           )}

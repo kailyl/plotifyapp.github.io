@@ -1,12 +1,11 @@
-import React, {useState, useEffect} from "react";
-import { findBounds, transformCoordinates } from "./helper";
+import React from "react";
+import { findBounds } from "./helper";
 import "./hoverComponent.css"
 import { GenreComponent } from "./GenreComponent";
-import {isMobile} from 'react-device-detect';
 
-export function HoverComponent({x, y, imageSize, axisLength, popularity, danceability, songInfo, smallFormat, isMobile, setHovered}) {
+export function HoverComponent({x, y, imageSize, axisLength, popularity, valence, songInfo, smallFormat, isMobile, setHovered}) {
     // set bounds for the coordinates
-    const bounds = findBounds(popularity, danceability, axisLength, imageSize);
+    const bounds = findBounds(popularity, valence, axisLength, imageSize);
 
     // return correct component if in bounds 
     var currElem = null; 
@@ -55,8 +54,8 @@ export function HoverComponent({x, y, imageSize, axisLength, popularity, danceab
         
     } else {
         if (isMobile) {
-            const songsFirstHalf = []; 
-            const songsSecondHalf = []; 
+            let songsFirstHalf = []; 
+            let songsSecondHalf = []; 
             var count = 1; 
             for (var song in songInfo) {
                 if (count < 6) {
@@ -65,6 +64,14 @@ export function HoverComponent({x, y, imageSize, axisLength, popularity, danceab
                     songsSecondHalf.push(songInfo[song].track)
                 }
                 count++;
+            }
+
+            if (songsFirstHalf.length <= 0 || songsSecondHalf.length <= 0) {
+                return (
+                    <div> 
+                        <h2 className="top10"> Loading Your Songs... </h2>
+                    </div>
+                )
             }
             return (
                 <div >

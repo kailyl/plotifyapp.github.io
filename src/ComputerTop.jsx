@@ -1,14 +1,24 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import "./computerTop.css"
 
 export function ComputerTop({songInfo, hoveredSong}) {
-    const songs = []; 
+    let songs = []; 
     for (var song in songInfo) {
         if (hoveredSong === songInfo[song].track) {
-            songs.push(<p key={song} style={{color: "#1DB954"}}> {songInfo[song].track} </p>)
+            songs.push(<li key={song} style={{color: "#1DB954", marginLeft: -12.5 }}><span style={{marginLeft: -6.5}}> {songInfo[song].track} </span></li>)
         } else {
-            songs.push(<p key={song} style={{color: "white"}}> {songInfo[song].track} </p>)
+            songs.push(<li key={song} style={{color: "white", listStyleType: "none"}}> {songInfo[song].track} </li>)
         }
+    }
+
+    if (songs.length <= 0) {
+        return (
+            <div className="margins"> 
+                <div className="top"> 
+                    <h1 className="load">Loading... </h1>
+                </div> 
+            </div> 
+        )
     }
 
     return (

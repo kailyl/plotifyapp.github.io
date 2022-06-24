@@ -1,13 +1,16 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, {useState, useRef} from "react";
 import "./Canvas.css"
 import { useMousePosition } from "./useMousePosition";
 import MouseTooltip from 'react-sticky-mouse-tooltip';
 import { HoverComponent } from "./HoverComponent";
 import {isMobile} from 'react-device-detect';
 import { ComputerTop } from "./ComputerTop";
+import { getScreenSize } from "./getScreenSize";
 
-export function Canvas ({ draw, height, width, imageSize, popularity, danceability, songInfo, smallFormat }) {
+export function Canvas ({ draw, height, width, imageSize, popularity, valence, songInfo, smallFormat }) {
     
+    const screenSize = getScreenSize();
+
     const position = useMousePosition()
     const canvas = React.useRef();
 
@@ -37,7 +40,7 @@ export function Canvas ({ draw, height, width, imageSize, popularity, danceabili
         context.stroke();
 
         context.beginPath();
-        var grd = context.createLinearGradient(0, 0, width, 0);
+        grd = context.createLinearGradient(0, 0, width, 0);
         grd.addColorStop(0, "yellow");
         grd.addColorStop(1, "magenta");
         context.strokeStyle = grd;
@@ -79,7 +82,7 @@ export function Canvas ({ draw, height, width, imageSize, popularity, danceabili
 
     const[hovered, setHovered] = useState("")
 
-    if (isMobile) {
+    if (isMobile || screenSize < 900) {
         return (
             <div> 
                 <canvas className="canvas" ref={canvas} height={height} width={width}/>
@@ -88,7 +91,7 @@ export function Canvas ({ draw, height, width, imageSize, popularity, danceabili
                                 imageSize={imageSize} 
                                 axisLength={width}
                                 popularity={popularity}
-                                danceability={danceability}
+                                valence={valence}
                                 songInfo={songInfo}
                                 smallFormat={smallFormat}
                                 isMobile={true}
@@ -110,7 +113,7 @@ export function Canvas ({ draw, height, width, imageSize, popularity, danceabili
                                 imageSize={imageSize} 
                                 axisLength={width}
                                 popularity={popularity}
-                                danceability={danceability}
+                                valence={valence}
                                 songInfo={songInfo}
                                 smallFormat={smallFormat}
                                 isMobile={false}

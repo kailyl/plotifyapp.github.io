@@ -19,7 +19,7 @@ export function KeyCanvas ({ height, width, smallFormat }) {
         let lineEndX = 113; 
         let radius = 5; 
         let fontsize = "14px"
-        let hypeStart = 37; 
+        let hypeStart = 12; 
         let rightSideStart = 125; 
 
         if (smallFormat) {
@@ -41,7 +41,7 @@ export function KeyCanvas ({ height, width, smallFormat }) {
         context.stroke();
 
         context.beginPath();
-        var grd = context.createLinearGradient(lineStartX, 15, lineEndX, 15);
+        grd = context.createLinearGradient(lineStartX, 15, lineEndX, 15);
         grd.addColorStop(0, "yellow");
         grd.addColorStop(1, "magenta");
         context.strokeStyle = grd;
@@ -75,7 +75,7 @@ export function KeyCanvas ({ height, width, smallFormat }) {
 
         context.fillStyle = "grey";
         context.font = fontsize + " Helvetica";
-        context.fillText("hype", hypeStart, 38);
+        context.fillText("happy :))", hypeStart, 38);
 
         context.fillStyle = "grey";
         context.font = fontsize + " Helvetica";
@@ -83,7 +83,7 @@ export function KeyCanvas ({ height, width, smallFormat }) {
 
         context.fillStyle = "grey";
         context.font = fontsize + " Helvetica";
-        context.fillText("chill", rightSideStart, 38);
+        context.fillText("sad :(", rightSideStart, 38);
     });
 
     return (

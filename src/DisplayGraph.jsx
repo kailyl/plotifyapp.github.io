@@ -1,16 +1,15 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import "./Canvas.css"
 import { getScreenSize } from "./getScreenSize";
 import { MemorizedCanvas } from "./Canvas";
 import { transformCoordinates } from "./helper";
 import { KeyCanvas } from "./KeyCanvas";
 import info from "./info-2-64.png";
-import {isMobile} from 'react-device-detect';
 
 export function DisplayGraph(props) {
     const songData = props.items;
     const popularityX = props.popularity;
-    const danceabilityY = props.danceability;
+    const valenceY = props.valence;
     const songDictionary = props.songDictionary;
     // keys are song ids, values are src links
     const albumSrcDictionary = {};
@@ -24,9 +23,9 @@ export function DisplayGraph(props) {
     if (width > 900) {
       imgSize = 0.038 * width; 
       axisLength = 0.4 * width;
-    } else if (width > 750) {
+    } else if (width > 600) {
       imgSize = 0.05 * width; 
-      axisLength = 0.6 * width;
+      axisLength = 0.4 * width;
     }
       else {
       imgSize = 0.1 * width; 
@@ -52,24 +51,24 @@ export function DisplayGraph(props) {
         for (var key in albumSrcDictionary) {
           const image = new Image();
           image.src = albumSrcDictionary[key];
-          const pt = transformCoordinates(popularityX[key], danceabilityY[key], axisLength, imgSize)
+          const pt = transformCoordinates(popularityX[key], valenceY[key], axisLength, imgSize)
           image.onload = () => {
             context.drawImage(image, pt[0], pt[1], imgSize, imgSize);
           };
           loadedImages[key]= image
         }
       } else {
-        for (var key in loadedImages) {
-          const pt = transformCoordinates(popularityX[key], danceabilityY[key], axisLength, imgSize)
-          context.drawImage(loadedImages[key], pt[0], pt[1], imgSize, imgSize);
+        for (var key2 in loadedImages) {
+          const pt = transformCoordinates(popularityX[key2], valenceY[key2], axisLength, imgSize)
+          context.drawImage(loadedImages[key2], pt[0], pt[1], imgSize, imgSize);
         }
       }   
     };
 
     // display stuff
-    if (albumSrcDictionary.length === 0) {
+    if (albumSrcDictionary.length < 10) {
         return (
-            <p> Loading...</p>
+            <p className="sorry"> Loading...</p>
         )
     } else if (width <300) {
       return (
@@ -81,15 +80,15 @@ export function DisplayGraph(props) {
       return (
         <div>
           <div className="heading">
-            {smallFormat ? <h2 className="header" style={{fontSize: 30, marginBottom: 0}}> Where Your Taste Falls </h2> : 
+            {smallFormat ? <h2 className="header" style={{fontSize: 20, marginBottom: 0}}> Where Your Taste Falls </h2> : 
                         <h2 className="header" style={{fontSize: 40, marginBottom: 0}}> Where Your Taste Falls </h2> 
             }
             <div className="infoDiv"> 
               <img className="info" src={info} alt="info page"/> 
               <div className="hiddenInfo"> 
                 <h3 className="infoHeading"> Info </h3>
-                <p> We use the Spotify API to determine the "popularity" and "danceability" of your top 10 songs. This data is used 
-                to calculate how basic/underrated and chill/hype your songs are :) </p>
+                <p> We use the Spotify API to determine the "popularity" and "valence" of your top 10 songs. This data is used 
+                to calculate how basic/underrated and sad/happy your songs are :) </p>
                 
               </div>
             </div> 
@@ -102,7 +101,7 @@ export function DisplayGraph(props) {
                             width={axisLength} 
                             imageSize={imgSize} 
                             popularity={popularityX} 
-                            danceability={danceabilityY}
+                            valence={valenceY}
                             songInfo={songDictionary}
                             smallFormat={smallFormat}/>
         </div>   
