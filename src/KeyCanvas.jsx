@@ -27,7 +27,7 @@ export function KeyCanvas ({ height, width, smallFormat }) {
             radius = 4;
             lineStartX = 70;
             lineEndX = 90; 
-            hypeStart = 32;
+            hypeStart = 11;
             rightSideStart = 93;
         }
         context.beginPath();
