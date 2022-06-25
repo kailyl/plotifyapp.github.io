@@ -72,6 +72,7 @@ class App extends Component {
       })
       const track = this.state.items[i].name; 
       const artists = this.state.items[i].artists;
+      const src = this.state.items[i].album.images[0].url
       for (var j = 0; j < artists.length; j++) {
         const artistID = artists[j].id
         $.ajax({
@@ -91,13 +92,15 @@ class App extends Component {
               dictionary[id] = {
                 track: track, 
                 artists: artists, 
-                genres: (dictionary[id].genres).concat(data.genres)
+                genres: (dictionary[id].genres).concat(data.genres),
+                src: src, 
               }
             } else {
               dictionary[id] = {
                 track: track, 
                 artists: artists, 
-                genres: data.genres
+                genres: data.genres, 
+                src: src, 
               }
             }
             this.setState({

@@ -18,6 +18,24 @@
     width: 100px;
 }
 
+.mobile {
+    background-color: #000;
+    color: #fff;
+    background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+    background: rgba(52, 51, 51, 0.5);   
+    border: 1px solid grey;
+    border-radius: 0.5em;
+    margin: auto;
+    width: 16rem;
+    margin-top: 2vh;
+}
+
+.container {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
 .name { 
     margin: 5px;
     text-align: left;
@@ -35,28 +53,16 @@
     margin-bottom: 0;
 }
 
-.mobile {
-    background-color: #000;
-    color: #fff;
-    background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
-    background: rgba(52, 51, 51, 0.5);   
-    border: 1px solid grey;
-    border-radius: 0.5em;
-    align-items: center;
-    margin: auto;
-    width: 80%;
-    margin-top: 2vh;
-}
-
 .left {
     text-align: left;
-    width: 100%;
+    width: 40%;
     font-size: 18px;
+    margin-left: 10%;
 }
 
 .right {
     text-align: left;
-    width: 100%;
+    width: 40%;
     font-size: 18px;
 }
 
@@ -70,9 +76,24 @@
 .top10 {
     margin-top: 10px;
     margin-bottom: 6px;
+    margin-left: 10%;
     text-align: left;
     font-size: 24px;
 } 
+
+.topzz {
+    align-items: center;
+    width: min-content; 
+}
+
+.listOfSongs {
+    width: 400%;
+}
+
+.songCover {
+    height: 50px;
+    margin: 10px;
+}
 
 @media only screen and (max-width: 600px) {
     .left {

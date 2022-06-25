@@ -41,17 +41,23 @@ export function HoverComponent({x, y, imageSize, axisLength, popularity, valence
             className = "mobile"
         }
         return (
-            <div className={className}>
-                <p className="name"> 
-                    <strong> {name} </strong>
-                </p>
-                <p className="artist"> 
-                    {artistString}
-                </p>
-                <GenreComponent genres={genres}/>
-            </div>
+            <div className="container"> 
+                <div className={className}>
+                    <div style={{display: "flex"}}> 
+                        {isMobile ? <img src={songInfo[currElem].src} alt="image of album cover" className="songCover"/> : null}
+                        <div> 
+                            <p className="name"> 
+                                <strong> {name} </strong>
+                            </p>
+                            <p className="artist"> 
+                                {artistString}
+                            </p>
+                            <GenreComponent genres={genres}/>
+                        </div>
+                    </div> 
+                </div>
+            </div> 
         )
-        
     } else {
         if (isMobile) {
             let songsFirstHalf = []; 
@@ -74,19 +80,24 @@ export function HoverComponent({x, y, imageSize, axisLength, popularity, valence
                 )
             }
             return (
-                <div >
-                    <h2 className="top10"> Your Top 10 </h2>
-                    <div className="list"> 
-                        <div className="left" > 
-                            {songsFirstHalf.map(song => <p key={song}> {song} </p>)}
-                        </div> 
-                        <div className="right"> 
-                            {songsSecondHalf.map(song => <p key={song}> {song} </p>)}
-                        </div> 
-                    </div>
-                    
-                </div> 
-                
+                <div className="topzz"> 
+                    <div className="listOfSongs">
+                        <h2 className="top10"> Your Top 10 </h2>
+                        <div className="list"> 
+                            <div className="left" > 
+                                {songsFirstHalf.map(song => 
+                                    <p key={song} style={{width: "100%"}}> {song} </p>
+                                )}
+                            </div> 
+                            <div className="right"> 
+                                {songsSecondHalf.map(song => 
+                                    <p key={song} style={{width: "100%"}}> {song} </p>
+                                )}
+                            </div> 
+                        </div>
+                    </div>           
+                </div>
+                      
             )
         } else {
             return null;

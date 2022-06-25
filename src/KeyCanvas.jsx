@@ -25,10 +25,10 @@ export function KeyCanvas ({ height, width, smallFormat }) {
         if (smallFormat) {
             fontsize = "12px"
             radius = 4;
-            lineStartX = 70;
-            lineEndX = 90; 
+            lineStartX = 75;
+            lineEndX = 95; 
             hypeStart = 11;
-            rightSideStart = 93;
+            rightSideStart = 104;
         }
         context.beginPath();
         var grd = context.createLinearGradient(lineStartX, 35, lineEndX - 10, 35);
