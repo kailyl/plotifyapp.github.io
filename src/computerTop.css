@@ -1,6 +1,14 @@
 .header {
     font-size: 24px;
+    margin-bottom: 0;
+}
+
+.moreInfo {
+    font-size: 12px;
+    margin-top: 0;
     margin-bottom: 20px;
+    text-align: left;
+    color: #1DB954;
 }
 
 .songs {
@@ -15,6 +23,7 @@
     margin-right: 35px;
     margin-top: 50px;
     margin-bottom: 50px;
+    width: 180px;
 }
 
 .margins {

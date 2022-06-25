@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { findBounds } from "./helper";
 import "./hoverComponent.css"
 import { GenreComponent } from "./GenreComponent";
@@ -18,89 +18,107 @@ export function HoverComponent({x, y, imageSize, axisLength, popularity, valence
             currElem = key
         } 
     }
-    if (currElem != null && currElem in songInfo) {
-        const name = songInfo[currElem].track 
-        if (!isMobile) {
-            setHovered(name)
-        }
-        const artists = songInfo[currElem].artists
-        let artistString = "" 
-        for (var i = 0; i < artists.length; i++) {
-            if (i === 0) {
-                artistString = artistString + artists[i].name
-            } else {
-                artistString = artistString + ", " + artists[i].name
+
+    // determine height of top 10 elements so showing song info doesn't shift page 
+    const [topHeight, setTopHeight] = useState(0); 
+    const elem = document.getElementById('test');
+    if (elem !== null && topHeight != elem.clientHeight) {
+        setTopHeight(elem.clientHeight)
+    }
+
+    function determineElement() {
+        if (currElem != null && currElem in songInfo) {
+            const name = songInfo[currElem].track 
+            if (!isMobile) {
+                setHovered(name)
             }
-        }
-        const genres = songInfo[currElem].genres
-        let className = "songInfo"
-        if (smallFormat) {
-            className = "smallSongInfo"
-        }
-        if (isMobile) {
-            className = "mobile"
-        }
-        return (
-            <div className="container"> 
-                <div className={className}>
-                    <div style={{display: "flex", overflow: "hidden"}}> 
-                        {isMobile ? <img src={songInfo[currElem].src} alt="image of album cover" className="songCover"/> : null}
-                        <div> 
-                            <p className="name"> 
-                                <strong> {name} </strong>
-                            </p>
-                            <p className="artist"> 
-                                {artistString}
-                            </p>
-                            <GenreComponent genres={genres}/>
-                        </div>
-                    </div> 
-                </div>
-            </div> 
-        )
-    } else {
-        if (isMobile) {
-            let songsFirstHalf = []; 
-            let songsSecondHalf = []; 
-            var count = 1; 
-            for (var song in songInfo) {
-                if (count < 6) {
-                    songsFirstHalf.push(songInfo[song].track)
+            const artists = songInfo[currElem].artists
+            let artistString = "" 
+            for (var i = 0; i < artists.length; i++) {
+                if (i === 0) {
+                    artistString = artistString + artists[i].name
                 } else {
-                    songsSecondHalf.push(songInfo[song].track)
+                    artistString = artistString + ", " + artists[i].name
                 }
-                count++;
+            }
+            const genres = songInfo[currElem].genres
+            let className = "songInfo"
+            if (smallFormat) {
+                className = "smallSongInfo"
+            }
+            if (isMobile) {
+                className = "mobile"
             }
 
-            if (songsFirstHalf.length <= 0 || songsSecondHalf.length <= 0) {
-                return (
-                    <div> 
-                        <h2 className="top10"> Loading Your Songs... </h2>
-                    </div>
-                )
-            }
             return (
-                <div className="topzz"> 
-                    <div className="listOfSongs" style={{overflow: "hidden"}}>
+                <div className="container"> 
+                    <div className={className}>
+                        <div style={{display: "flex", overflow: "hidden"}}> 
+                            {isMobile ? <img src={songInfo[currElem].src} alt="image of album cover" className="songCover"/> : null}
+                            <div> 
+                                <p className="name"> 
+                                    <strong> {name} </strong>
+                                </p>
+                                <p className="artist"> 
+                                    {artistString}
+                                </p>
+                                <GenreComponent genres={genres}/>
+                            </div>
+                        </div> 
+                    </div>
+                </div> 
+            )
+        } else {
+            if (isMobile) {
+                let songsFirstHalf = []; 
+                let songsSecondHalf = []; 
+                var count = 1; 
+                for (var song in songInfo) {
+                    if (count < 6) {
+                        songsFirstHalf.push(songInfo[song].track)
+                    } else {
+                        songsSecondHalf.push(songInfo[song].track)
+                    }
+                    count++;
+                }
+                
+                if (songsFirstHalf.length <= 0 || songsSecondHalf.length <= 0) {
+                    return (
+                        <div> 
+                            <h2 className="loading"> Loading Your Songs... </h2>
+                            <p className="loadingTime">If this process takes > 2 minutes, please refresh or try again later. </p>
+                        </div>
+                    )
+                }
+                return (
+                    <div id="test" className="topzz"> 
                         <h2 className="top10"> Your Top 10 </h2>
+                        <p className="learnMore">Tap on a song for more info</p>
                         <div className="list"> 
                             <div className="left" > 
                                 {songsFirstHalf.map(song => 
-                                    <p key={song} style={{width: "100%"}}> {song} </p>
+                                    <p key={song}> {song} </p>
                                 )}
                             </div> 
                             <div className="right"> 
                                 {songsSecondHalf.map(song => 
-                                    <p key={song} style={{width: "100%"}}> {song} </p>
+                                    <p key={song}> {song} </p>
                                 )}
                             </div> 
                         </div>
-                    </div>           
-                </div>
-                      
-            )
-        } else {
-            return null;
+                    </div>   
+                )
+            } else {
+                setHovered("")
+                return null
+            }
         }
     }
+
+    return (
+        <div style={{height: topHeight + 20}}>
+            {determineElement()}
+        </div> 
+    )
+    
 }

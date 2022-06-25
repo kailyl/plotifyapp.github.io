@@ -88,7 +88,7 @@ export function KeyCanvas ({ height, width, smallFormat }) {
 
     return (
         <div> 
-            <canvas className="canvas" ref={canvas} height={height} width={width}/>
+            <canvas className="keyCanvas" ref={canvas} height={height} width={width} />
         </div>
     )
 };

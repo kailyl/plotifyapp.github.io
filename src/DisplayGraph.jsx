@@ -23,13 +23,9 @@ export function DisplayGraph(props) {
     if (width > 900) {
       imgSize = 0.038 * width; 
       axisLength = 0.4 * width;
-    } else if (width > 600) {
-      imgSize = 0.05 * width; 
-      axisLength = 0.4 * width;
-    }
-      else {
+    } else {
       imgSize = 0.1 * width; 
-      axisLength = 0.85 * width;
+      axisLength = 0.77 * width;
       smallFormat = true;
     }
 
@@ -80,30 +76,34 @@ export function DisplayGraph(props) {
       return (
         <div>
           <div className="heading">
-            {smallFormat ? <h2 className="header" style={{fontSize: 20, marginBottom: 0}}> Where Your Music Falls </h2> : 
-                        <h2 className="header" style={{fontSize: 40, marginBottom: 0}}> Where Your Music Falls </h2> 
-            }
-            <div className="infoDiv"> 
-              <img className="info" src={info} alt="info page"/> 
-              <div className="hiddenInfo"> 
-                <h3 className="infoHeading"> Info </h3>
-                <p> We use the Spotify API to determine the "popularity" and "valence" of your top 10 songs. This data is used 
-                to calculate how basic/underrated and sad/happy your songs are :) </p>
-                
-              </div>
+            <h2 className="header" style={{fontSize: "2.25em", marginBottom: 0}}> Where Your Music Falls </h2> 
+            <div className="key"> 
+              <KeyCanvas height={50} width={axisLength} smallFormat={superSmallFormat}/> 
             </div> 
           </div> 
-          <div className="key"> 
-            <KeyCanvas height={50} width={axisLength} smallFormat={superSmallFormat}/> 
-          </div> 
-          <MemorizedCanvas className="bigCanvas" draw={draw} 
-                            height={axisLength} 
-                            width={axisLength} 
-                            imageSize={imgSize} 
-                            popularity={popularityX} 
-                            valence={valenceY}
-                            songInfo={songDictionary}
-                            smallFormat={smallFormat}/>
+          
+          {smallFormat ? 
+            <div className="smallerCanvas" > 
+              <MemorizedCanvas draw={draw} 
+                              height={axisLength} 
+                              width={axisLength} 
+                              imageSize={imgSize} 
+                              popularity={popularityX} 
+                              valence={valenceY}
+                              songInfo={songDictionary}
+                              smallFormat={smallFormat}/>
+            </div> : 
+            <div className="bigCanvas" > 
+              <MemorizedCanvas draw={draw} 
+                              height={axisLength} 
+                              width={axisLength} 
+                              imageSize={imgSize} 
+                              popularity={popularityX} 
+                              valence={valenceY}
+                              songInfo={songDictionary}
+                              smallFormat={smallFormat}/>
+          </div>}
+          
         </div>   
       )   
     } 
