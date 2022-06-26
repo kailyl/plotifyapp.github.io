@@ -22,7 +22,7 @@ export function HoverComponent({x, y, imageSize, axisLength, popularity, valence
     // determine height of top 10 elements so showing song info doesn't shift page 
     const [topHeight, setTopHeight] = useState(0); 
     const elem = document.getElementById('test');
-    if (elem !== null && topHeight != elem.clientHeight) {
+    if (elem !== null && topHeight !== elem.clientHeight) {
         setTopHeight(elem.clientHeight)
     }
 
@@ -54,7 +54,7 @@ export function HoverComponent({x, y, imageSize, axisLength, popularity, valence
                 <div className="container"> 
                     <div className={className}>
                         <div style={{display: "flex", overflow: "hidden"}}> 
-                            {isMobile ? <img src={songInfo[currElem].src} alt="image of album cover" className="songCover"/> : null}
+                            {isMobile ? <img src={songInfo[currElem].src} alt="album cover" className="songCover"/> : null}
                             <div> 
                                 <p className="name"> 
                                     <strong> {name} </strong>

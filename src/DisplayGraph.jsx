@@ -4,7 +4,6 @@ import { getScreenSize } from "./getScreenSize";
 import { MemorizedCanvas } from "./Canvas";
 import { transformCoordinates } from "./helper";
 import { KeyCanvas } from "./KeyCanvas";
-import info from "./info-2-64.png";
 
 export function DisplayGraph(props) {
     const songData = props.items;
@@ -76,7 +75,7 @@ export function DisplayGraph(props) {
       return (
         <div>
           <div className="heading">
-            <h2 className="header" style={{fontSize: "2.25em", marginBottom: 0}}> Where Your Music Falls </h2> 
+            <h2 className="header" style={{fontSize: "2.25em", marginBottom: 0 }}> Where Your Music Falls </h2> 
             <div className="key"> 
               <KeyCanvas height={50} width={axisLength} smallFormat={superSmallFormat}/> 
             </div> 

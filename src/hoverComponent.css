@@ -87,6 +87,9 @@
     font-size: x-small;
     margin-bottom: 10px;
     color: #1DB954;
+    font-weight: 900;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .loading {
