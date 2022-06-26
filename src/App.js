@@ -193,7 +193,7 @@ class App extends Component {
             )}
             {this.state.no_data && (
               <p>
-                NOOO it doesn't seem like we were able to retrieve your data :(
+                NOOOO it doesn't seem like we were able to retrieve your data :(
               </p>
             )}
           </div>
