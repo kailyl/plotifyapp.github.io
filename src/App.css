@@ -70,7 +70,6 @@ body {
 
 .btn:hover {
   background: #1DB954;
-  /* background: linear-gradient(90deg, rgba(255,241,0,0.9) 0%, rgba(29,253,203,0.9) 50%, rgba(252,0,206,0.9) 100%); */
   border: none;
   color: #000;
 }
@@ -104,7 +103,6 @@ body {
 }
 
 @media only screen and (max-width: 500px) {
-
   .logo {
     margin-top: 10px;
     width: 20%;
@@ -113,8 +111,7 @@ body {
 
 }
 
-@media only screen and (max-width: 370px) {
-
+@media only screen and (max-width: 400px) {
   .title {
     font-size: 40px;
   }
