@@ -20,7 +20,7 @@ export function HoverComponent({x, y, imageSize, axisLength, popularity, valence
     }
 
     // determine height of top 10 elements so showing song info doesn't shift page 
-    const [topHeight, setTopHeight] = useState(0); 
+    const [topHeight, setTopHeight] = useState(100); 
     const elem = document.getElementById('test');
     if (elem !== null && topHeight != elem.clientHeight) {
         setTopHeight(elem.clientHeight)
@@ -85,7 +85,7 @@ export function HoverComponent({x, y, imageSize, axisLength, popularity, valence
                 if (songsFirstHalf.length <= 0 || songsSecondHalf.length <= 0) {
                     return (
                         <div> 
-                            <h2 className="loading"> Loading Your Songs... </h2>
+                            <h2 className="loading"> Loading Your Songs...</h2>
                             <p className="loadingTime">If this process takes > 2 minutes, please refresh or try again later. </p>
                         </div>
                     )
