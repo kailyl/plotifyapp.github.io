@@ -4,6 +4,7 @@ import { getScreenSize } from "./getScreenSize";
 import { MemorizedCanvas } from "./Canvas";
 import { transformCoordinates } from "./helper";
 import { KeyCanvas } from "./KeyCanvas";
+import info from "./info-2-64.png";
 
 export function DisplayGraph(props) {
     const songData = props.items;

@@ -184,21 +184,19 @@ class App extends Component {
               </div> 
             )}
           </div> 
-          <div className="mainStuff">
-            {this.state.token && !this.state.no_data && (
-              <div> 
-                <DisplayGraph items={this.state.items} 
-                            popularity={this.state.popularity} 
-                            valence={this.state.valence} 
-                            songDictionary={this.state.songDictionary}/> 
-              </div>
-            )}
-            {this.state.no_data && (
-              <p>
-                NOOO it doesn't seem like we were able to retrieve your data :(
-              </p>
-            )}
-          </div>
+          {this.state.token && !this.state.no_data && (
+            <div> 
+              <DisplayGraph items={this.state.items} 
+                          popularity={this.state.popularity} 
+                          valence={this.state.valence} 
+                          songDictionary={this.state.songDictionary}/> 
+            </div>
+          )}
+          {this.state.no_data && (
+            <p>
+              NOOO it doesn't seem like we were able to retrieve your data :(
+            </p>
+          )}
         </div>
       </div>
     );
