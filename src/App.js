@@ -166,6 +166,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
+          <div className="intro">
             {!this.state.token && (
               <div className="main"> 
                 <h1 className="title"> plotify </h1>
@@ -182,6 +183,7 @@ class App extends Component {
                 <p className="hi"> made with &#60;3 by Kaily Liu and Joyce He </p>
               </div> 
             )}
+          </div> 
           {this.state.token && !this.state.no_data && (
             <div> 
               <DisplayGraph items={this.state.items} 
