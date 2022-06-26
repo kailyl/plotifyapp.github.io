@@ -166,22 +166,24 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          {!this.state.token && (
-            <div className="main"> 
-              <h1 className="title"> plotify </h1>
-              <img className="logo" src={logo} alt="logo"/> 
-              <h1 className="divider"> </h1>
-              <a
-                className="btn btn--loginApp-link"
-                href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
-                  "%20"
-                )}&response_type=token&show_dialog=true`}
-              >
-                Log in with Spotify
-              </a>
-              <p className="hi"> made with &#60;3 by Kaily Liu and Joyce He </p>
-            </div> 
-          )}
+          <div className="intro">
+            {!this.state.token && (
+              <div className="main"> 
+                <h1 className="title"> plotify </h1>
+                <img className="logo" src={logo} alt="logo"/> 
+                <h1 className="divider"> </h1>
+                <a
+                  className="btn btn--loginApp-link"
+                  href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
+                    "%20"
+                  )}&response_type=token&show_dialog=true`}
+                >
+                  Log in with Spotify
+                </a>
+                <p className="hi"> made with &#60;3 by Kaily Liu and Joyce He </p>
+              </div> 
+            )}
+          </div> 
           <div className="mainStuff">
             {this.state.token && !this.state.no_data && (
               <div> 
