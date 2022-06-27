@@ -109,7 +109,7 @@ body {
   align-items: center;
 }
 
-.name {
+.logoName {
   width: 40%;
   display: block;
   margin-left: auto;
@@ -124,7 +124,7 @@ body {
     width: 50%;
   }
 
-  .name {
+  .logoName {
     width: 80%;
     margin-top: -10%;
   }

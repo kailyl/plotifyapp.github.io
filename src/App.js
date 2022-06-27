@@ -174,7 +174,7 @@ class App extends Component {
                 {/* <h1 className="title"> plotify </h1> */}
                 <div className="plotify"> 
                   <img className="logo" src={pIcon} alt="logo"/> 
-                  <img className="name" src={pTitle} alt="logo"/> 
+                  <img className="logoName" src={pTitle} alt="logo"/> 
                 </div> 
                 <h1 className="divider"> </h1>
                 <a
