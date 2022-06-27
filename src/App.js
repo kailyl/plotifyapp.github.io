@@ -5,6 +5,8 @@ import hash from "./hash";
 import {DisplayGraph} from "./DisplayGraph";
 import "./App.css";
 import logo from "./testLogo.png";
+import pIcon from "./plotifyIcon.png" 
+import pTitle from "./plotifyLogo.png"
 
 class App extends Component {
   constructor() {
@@ -169,8 +171,11 @@ class App extends Component {
           <div className="intro">
             {!this.state.token && (
               <div className="main"> 
-                <h1 className="title"> plotify </h1>
-                <img className="logo" src={logo} alt="logo"/> 
+                {/* <h1 className="title"> plotify </h1> */}
+                <div className="plotify"> 
+                  <img className="logo" src={pIcon} alt="logo"/> 
+                  <img className="name" src={pTitle} alt="logo"/> 
+                </div> 
                 <h1 className="divider"> </h1>
                 <a
                   className="btn btn--loginApp-link"
