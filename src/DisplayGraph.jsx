@@ -27,7 +27,6 @@ export function DisplayGraph(props) {
       axisLength = 0.77 * width;
       smallFormat = true;
     }
-
     if (width < 400) {
       superSmallFormat = true;
     }
@@ -102,8 +101,7 @@ export function DisplayGraph(props) {
                               songInfo={songDictionary}
                               smallFormat={smallFormat}/>
           </div>}
-          
         </div>   
       )   
     } 
-  }
+}

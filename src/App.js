@@ -4,9 +4,8 @@ import { authEndpoint, clientId, redirectUri, scopes } from "./config";
 import hash from "./hash";
 import {DisplayGraph} from "./DisplayGraph";
 import "./App.css";
-import logo from "./testLogo.png";
-import pIcon from "./plotifyIcon.png" 
-import pTitle from "./plotifyLogo.png"
+import pIcon from "./images/plotifyIcon.png" 
+import pTitle from "./images/plotifyLogo.png"
 
 class App extends Component {
   constructor() {
@@ -171,7 +170,6 @@ class App extends Component {
           <div className="intro">
             {!this.state.token && (
               <div className="main"> 
-                {/* <h1 className="title"> plotify </h1> */}
                 <div className="plotify"> 
                   <img className="logo" src={pIcon} alt="logo"/> 
                   <img className="logoName" src={pTitle} alt="logo"/> 

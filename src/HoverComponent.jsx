@@ -119,6 +119,5 @@ export function HoverComponent({x, y, imageSize, axisLength, popularity, valence
         <div style={{height: topHeight + 20}}>
             {determineElement()}
         </div> 
-    )
-    
+    )  
 }
