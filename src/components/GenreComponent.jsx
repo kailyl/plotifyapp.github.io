@@ -1,5 +1,5 @@
 import React from "react";
-import "./genreComponent.css"
+import "../style/GenreComponent.css"
 
 export function GenreComponent({genres}) {
 

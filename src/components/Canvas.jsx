@@ -1,15 +1,15 @@
 import React, {useState, useRef} from "react";
-import "./Canvas.css"
-import { useMousePosition } from "./useMousePosition";
+import { useMousePosition } from "./UseMousePosition";
 import MouseTooltip from 'react-sticky-mouse-tooltip';
 import { HoverComponent } from "./HoverComponent";
 import {isMobile} from 'react-device-detect';
 import { ComputerTop } from "./ComputerTop";
-import { getScreenSize } from "./getScreenSize";
+import { GetScreenSize } from "../helpers/getScreenSize.js";
+import "../style/Canvas.css"
 
 export function Canvas ({ draw, height, width, imageSize, popularity, valence, songInfo, smallFormat }) {
     
-    const screenSize = getScreenSize();
+    const screenSize = GetScreenSize();
 
     const position = useMousePosition()
     const canvas = React.useRef();

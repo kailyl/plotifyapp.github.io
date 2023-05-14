@@ -1,8 +1,8 @@
 import React from "react";
-import "./Canvas.css"
-import { getScreenSize } from "./getScreenSize";
+import "../style/Canvas.css"
+import { GetScreenSize } from "../helpers/getScreenSize.js";
 import { MemorizedCanvas } from "./Canvas";
-import { transformCoordinates } from "./helper";
+import { transformCoordinates } from "../helpers/helper.js";
 import { KeyCanvas } from "./KeyCanvas";
 
 export function DisplayGraph(props) {
@@ -14,7 +14,7 @@ export function DisplayGraph(props) {
     const albumSrcDictionary = {};
 
     // determine dimensions 
-    const width = getScreenSize();
+    const width = GetScreenSize() - 100;
     let imgSize; 
     let axisLength; 
     let smallFormat = false; 
@@ -74,7 +74,7 @@ export function DisplayGraph(props) {
       return (
         <div>
           <div className="heading">
-            <h2 className="header" style={{fontSize: "2.25em", marginBottom: 0 }}> Where Your Music Falls </h2> 
+            <h2 className="header" style={{fontSize: "2.15em", marginBottom: 0 }}> Where Your Music Falls </h2> 
             <div className="key"> 
               <KeyCanvas height={50} width={axisLength} smallFormat={superSmallFormat}/> 
             </div> 

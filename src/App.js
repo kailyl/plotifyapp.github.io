@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import * as $ from "jquery";
-import { authEndpoint, clientId, redirectUri, scopes } from "./config";
-import hash from "./hash";
-import {DisplayGraph} from "./DisplayGraph";
+import { authEndpoint, clientId, redirectUri, scopes } from "./helpers/config.js"
+import hash from "./helpers/hash.js";
+import {DisplayGraph} from "./components/DisplayGraph";
 import "./App.css";
 import pIcon from "./images/plotifyIcon.png" 
 import pTitle from "./images/plotifyLogo.png"

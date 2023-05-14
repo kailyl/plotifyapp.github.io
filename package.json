@@ -13,7 +13,7 @@
     "react": "^16.8.4",
     "react-device-detect": "^2.2.2",
     "react-dom": "^16.8.4",
-    "react-scripts": "^2.1.8",
+    "react-scripts": "^5.0.1",
     "react-sticky-mouse-tooltip": "^0.0.1",
     "react-tooltip": "^4.2.21",
     "tooltip": "^1.6.1"

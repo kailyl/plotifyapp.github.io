@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { findBounds } from "./helper";
-import "./hoverComponent.css"
+import { findBounds } from "../helpers/helper.js";
 import { GenreComponent } from "./GenreComponent";
+import "../style/HoverComponent.css"
 
 export function HoverComponent({x, y, imageSize, axisLength, popularity, valence, songInfo, smallFormat, isMobile, setHovered}) {
     // set bounds for the coordinates

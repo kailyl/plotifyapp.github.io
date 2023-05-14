@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 
-export const getScreenSize = () => {
+export const GetScreenSize = () => {
     const [windowDimension, detectHW] = useState({
       winWidth: window.innerWidth,
       winHeight: window.innerHeight,

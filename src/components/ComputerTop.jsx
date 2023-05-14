@@ -1,5 +1,5 @@
 import React from "react";
-import "./computerTop.css"
+import "../style/ComputerTop.css"
 
 export function ComputerTop({songInfo, hoveredSong}) {
     let songs = []; 
